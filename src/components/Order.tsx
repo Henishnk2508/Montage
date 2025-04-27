@@ -5,7 +5,7 @@ import Button from "./UiComponent/Button";
 import modelStore from "../stores/ModelStore";
 import textureStore from "../stores/TextureStore";
 import designStore from "../stores/DesignStore";
-import { AUTH_TOKEN, BASE_URL } from "../Constants"; // Make sure this is correctly set
+import { AUTH_TOKEN, BASE_URL } from "../Constants"; 
 
 interface OrderSummaryProps {
   onBack: () => void;
@@ -69,7 +69,6 @@ const OrderSummary: React.FC<OrderSummaryProps> = observer(({ onBack }) => {
       const data = await response.json();
 
       if (data.clientSecret) {
-        // Redirect to Stripe Checkout
         window.location.href = data.clientSecret;
       } else {
         console.error("Error: Invalid response from server", data);
@@ -77,7 +76,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = observer(({ onBack }) => {
     } catch (error) {
       console.error("Checkout failed:", error);
     } finally {
-      setLoading(false); // Hide loading state
+      setLoading(false); 
     }
   };
 
